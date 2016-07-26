@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "Platform to share your pics",
   "main": "server.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/raulnabarret/Pictagram.git"
@@ -14,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/raulnabarret/Pictagram/issues"
   },
-  "homepage": "https://github.com/raulnabarret/Pictagram#readme"
+  "homepage": "https://github.com/raulnabarret/Pictagram#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
