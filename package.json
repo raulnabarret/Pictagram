@@ -16,7 +16,8 @@
   "homepage": "https://github.com/raulnabarret/Pictagram#readme",
   "dependencies": {
     "express": "^4.14.0",
-    "materialize-css": "^0.97.7"
+    "materialize-css": "^0.97.7",
+    "pug": "^0.1.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
