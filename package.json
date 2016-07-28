@@ -18,11 +18,13 @@
   },
   "homepage": "https://github.com/raulnabarret/Pictagram#readme",
   "dependencies": {
+    "empty-element": "^1.0.0",
     "express": "^4.14.0",
     "jquery": "^3.1.0",
     "materialize-css": "^0.97.7",
     "page": "^1.7.1",
-    "pug": "^0.1.0"
+    "pug": "^0.1.0",
+    "yo-yo": "^1.2.2"
   },
   "devDependencies": {
     "babelify": "^7.3.0",
