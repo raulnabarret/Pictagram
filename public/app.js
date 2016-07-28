@@ -11221,6 +11221,29 @@ module.exports = Array.isArray || function (arr) {
 };
 
 },{}],7:[function(require,module,exports){
+
+var orig = document.title;
+
+exports = module.exports = set;
+
+function set(str) {
+  var i = 1;
+  var args = arguments;
+  document.title = str.replace(/%[os]/g, function(_){
+    switch (_) {
+      case '%o':
+        return orig;
+      case '%s':
+        return args[i++];
+    }
+  });
+}
+
+exports.reset = function(){
+  set(orig);
+};
+
+},{}],8:[function(require,module,exports){
 var bel = require('bel') // turns template tag into DOM elements
 var morphdom = require('morphdom') // efficiently diffs + morphs two DOM elements
 var defaultEvents = require('./update-events.js') // default events to be copied when dom elements update
@@ -11256,7 +11279,7 @@ module.exports.update = function (fromNode, toNode, opts) {
   }
 }
 
-},{"./update-events.js":15,"bel":8,"morphdom":14}],8:[function(require,module,exports){
+},{"./update-events.js":16,"bel":9,"morphdom":15}],9:[function(require,module,exports){
 var document = require('global/document')
 var hyperx = require('hyperx')
 var onload = require('on-load')
@@ -11398,7 +11421,7 @@ function belCreateElement (tag, props, children) {
 module.exports = hyperx(belCreateElement)
 module.exports.createElement = belCreateElement
 
-},{"global/document":9,"hyperx":11,"on-load":13}],9:[function(require,module,exports){
+},{"global/document":10,"hyperx":12,"on-load":14}],10:[function(require,module,exports){
 (function (global){
 var topLevel = typeof global !== 'undefined' ? global :
     typeof window !== 'undefined' ? window : {}
@@ -11417,7 +11440,7 @@ if (typeof document !== 'undefined') {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"min-document":1}],10:[function(require,module,exports){
+},{"min-document":1}],11:[function(require,module,exports){
 (function (global){
 if (typeof window !== "undefined") {
     module.exports = window;
@@ -11430,7 +11453,7 @@ if (typeof window !== "undefined") {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var attrToProp = require('hyperscript-attribute-to-property')
 
 var VAR = 0, TEXT = 1, OPEN = 2, CLOSE = 3, ATTR = 4
@@ -11695,7 +11718,7 @@ var closeRE = RegExp('^(' + [
 ].join('|') + ')(?:[\.#][a-zA-Z0-9\u007F-\uFFFF_:-]+)*$')
 function selfClosing (tag) { return closeRE.test(tag) }
 
-},{"hyperscript-attribute-to-property":12}],12:[function(require,module,exports){
+},{"hyperscript-attribute-to-property":13}],13:[function(require,module,exports){
 module.exports = attributeToProperty
 
 var transform = {
@@ -11716,7 +11739,7 @@ function attributeToProperty (h) {
   }
 }
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /* global MutationObserver */
 var document = require('global/document')
 var window = require('global/window')
@@ -11805,7 +11828,7 @@ function eachMutation (nodes, fn) {
   }
 }
 
-},{"global/document":9,"global/window":10}],14:[function(require,module,exports){
+},{"global/document":10,"global/window":11}],15:[function(require,module,exports){
 // Create a range object for efficently rendering strings to elements.
 var range;
 
@@ -12388,7 +12411,7 @@ function morphdom(fromNode, toNode, options) {
 
 module.exports = morphdom;
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 module.exports = [
   // attribute events (can be set with attributes)
   'onclick',
@@ -12426,9 +12449,10 @@ module.exports = [
   'onfocusout'
 ]
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 var $ = require('jquery');
 var page = require('page');
+var title = require('title');
 
 var $main = $('#main-container');
 
@@ -12437,7 +12461,7 @@ page('/', function (ctx, next) {
     $main.html('Hola');
 });
 
-},{"jquery":3,"page":4}],17:[function(require,module,exports){
+},{"jquery":3,"page":4,"title":7}],18:[function(require,module,exports){
 var page = require('page');
 
 require('./homepage');
@@ -12446,7 +12470,7 @@ require('./signin');
 
 page();
 
-},{"./homepage":16,"./signin":19,"./signup":21,"page":4}],18:[function(require,module,exports){
+},{"./homepage":17,"./signin":20,"./signup":22,"page":4}],19:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
@@ -12465,18 +12489,19 @@ module.exports = function landing(box) {
         </div>`;
 };
 
-},{"yo-yo":7}],19:[function(require,module,exports){
+},{"yo-yo":8}],20:[function(require,module,exports){
 var $ = require('jquery');
 var page = require('page');
 var template = require('./template');
+var title = require('title');
 
 page('/signin', function (ctx, next) {
-
-        var $main = $('#main-container');
-        $main.html(template);
+    title('Pictagram - Sign In');
+    var $main = $('#main-container');
+    $main.html(template);
 });
 
-},{"./template":20,"jquery":3,"page":4}],20:[function(require,module,exports){
+},{"./template":21,"jquery":3,"page":4,"title":7}],21:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -12508,18 +12533,19 @@ var signinForm = yo`<div class="col s12 m7">
 
 module.exports = landing(signinForm);
 
-},{"../landing":18,"yo-yo":7}],21:[function(require,module,exports){
+},{"../landing":19,"yo-yo":8}],22:[function(require,module,exports){
 var $ = require('jquery');
 var page = require('page');
 var template = require('./template');
+var title = require('title');
 
 page('/signup', function (ctx, next) {
-
+    title('Pictagram - Sign Up');
     var $main = $('#main-container');
     $main.html(template);
 });
 
-},{"./template":22,"jquery":3,"page":4}],22:[function(require,module,exports){
+},{"./template":23,"jquery":3,"page":4,"title":7}],23:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -12554,4 +12580,4 @@ var signupForm = yo`<div class="col s12 m7">
 
 module.exports = landing(signupForm);
 
-},{"../landing":18,"yo-yo":7}]},{},[17]);
+},{"../landing":19,"yo-yo":8}]},{},[18]);
