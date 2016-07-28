@@ -12427,22 +12427,39 @@ module.exports = [
 ]
 
 },{}],16:[function(require,module,exports){
-var page = require('page');
 var $ = require('jquery');
+var page = require('page');
+
+var $main = $('#main-container');
+
+page('/', function (ctx, next) {
+
+    $main.html('Hola');
+});
+
+},{"jquery":3,"page":4}],17:[function(require,module,exports){
+var page = require('page');
+
+require('./homepage');
+require('./signup');
+
+page();
+
+},{"./homepage":16,"./signup":18,"page":4}],18:[function(require,module,exports){
+var $ = require('jquery');
+var page = require('page');
+var template = require('./template');
+
+page('/signup', function (ctx, next) {
+
+    var $main = $('#main-container');
+    $main.html(template);
+});
+
+},{"./template":19,"jquery":3,"page":4}],19:[function(require,module,exports){
 var yo = require('yo-yo');
 
-$(document).ready(function () {
-
-    var main = $('#main-container');
-
-    page('/', function (ctx, next) {});
-
-    page('/signup', function (crx, next) {
-
-        var main = $('#main-container');
-
-        var el = yo`        
-        <div class="container">
+module.exports = yo`<div class="container">
             <div class="row">
                 <div class="col s10 push-s1">
                     <div class="row">
@@ -12480,12 +12497,6 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>
-        </div>	
-		`;
-        main.append(el);
-    });
+        </div>`;
 
-    page();
-});
-
-},{"jquery":3,"page":4,"yo-yo":7}]},{},[16]);
+},{"yo-yo":7}]},{},[17]);
