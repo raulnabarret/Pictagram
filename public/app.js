@@ -12442,10 +12442,73 @@ var page = require('page');
 
 require('./homepage');
 require('./signup');
+require('./signin');
 
 page();
 
-},{"./homepage":16,"./signup":18,"page":4}],18:[function(require,module,exports){
+},{"./homepage":16,"./signin":19,"./signup":21,"page":4}],18:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = function landing(box) {
+
+    return yo`<div class="container">
+            <div class="row">
+                <div class="col s10 push-s1">
+                    <div class="row">
+                        <div class="col m5 hide-on-small-only">
+                            <img class="signup-image" src="iphone.png" alt="">
+                        </div>
+                        ${ box }
+                    </div>
+                </div>
+            </div>
+        </div>`;
+};
+
+},{"yo-yo":7}],19:[function(require,module,exports){
+var $ = require('jquery');
+var page = require('page');
+var template = require('./template');
+
+page('/signin', function (ctx, next) {
+
+        var $main = $('#main-container');
+        $main.html(template);
+});
+
+},{"./template":20,"jquery":3,"page":4}],20:[function(require,module,exports){
+var yo = require('yo-yo');
+var landing = require('../landing');
+
+var signinForm = yo`<div class="col s12 m7">
+                            <div class="row">
+                                <div class="signup-box">
+                                    <h1 class="pictagram">Pictagram</h1>
+                                    <form action="" class="signup-form">
+                                        <div class="section">
+                                            <a href="" class="btn btn-fb hide-on-small-only">Inicia sesión con Facebook</a>
+                                            <a href="" class="btn btn-fb hide-on-med-and-up">Iniciar sesión</a>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="section">
+                                            <input type="text" name="username" placeholder="Username">
+                                            <input type="password" name="password" placeholder="Password">
+                                            <button class="btn btn-signup waves-effect waves-light" type="submit">Sign In</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="login-box">
+                                    Don't have an account?
+                                    <a href="/signup">Sign Up</a>
+                                </div>
+                            </div>
+                        </div>`;
+
+module.exports = landing(signinForm);
+
+},{"../landing":18,"yo-yo":7}],21:[function(require,module,exports){
 var $ = require('jquery');
 var page = require('page');
 var template = require('./template');
@@ -12456,17 +12519,11 @@ page('/signup', function (ctx, next) {
     $main.html(template);
 });
 
-},{"./template":19,"jquery":3,"page":4}],19:[function(require,module,exports){
+},{"./template":22,"jquery":3,"page":4}],22:[function(require,module,exports){
 var yo = require('yo-yo');
+var landing = require('../landing');
 
-module.exports = yo`<div class="container">
-            <div class="row">
-                <div class="col s10 push-s1">
-                    <div class="row">
-                        <div class="col m5 hide-on-small-only">
-                            <img class="signup-image" src="iphone.png" alt="">
-                        </div>
-                        <div class="col s12 m7">
+var signupForm = yo`<div class="col s12 m7">
                             <div class="row">
                                 <div class="signup-box">
                                     <h1 class="pictagram">Pictagram</h1>
@@ -12493,10 +12550,8 @@ module.exports = yo`<div class="container">
                                     <a href="/signin">Sign In</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
+                        </div>`;
 
-},{"yo-yo":7}]},{},[17]);
+module.exports = landing(signupForm);
+
+},{"../landing":18,"yo-yo":7}]},{},[17]);
