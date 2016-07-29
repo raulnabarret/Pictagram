@@ -18,7 +18,8 @@ page('/', function(ctx, next) {
 			},
 			'url': 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg',
 			'likes': 2034,
-			'liked': true
+			'liked': true,
+			'createdAt': new Date()
 		},
 		{
 			'user': {
@@ -27,7 +28,8 @@ page('/', function(ctx, next) {
 			},
 			'url': 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg',
 			'likes': 2034,
-			'liked': true
+			'liked': true,
+			'createdAt': new Date().setDate(new Date().getDate() - 10)
 		}
 	]
 
