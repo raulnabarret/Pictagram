@@ -12453,15 +12453,56 @@ module.exports = [
 var $ = require('jquery');
 var page = require('page');
 var title = require('title');
+var template = require('./template');
 
 var $main = $('#main-container');
 
 page('/', function (ctx, next) {
 
-    $main.html('Hola');
+	title('Pictagram - Home');
+
+	var pictures = [{
+		'user': {
+			username: 'raulnabarret',
+			avatar: 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg'
+		},
+		'url': 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg',
+		'likes': 2034,
+		'liked': true
+	}, {
+		'user': {
+			username: 'raulnabarret',
+			avatar: 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg'
+		},
+		'url': 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg',
+		'likes': 2034,
+		'liked': true
+	}];
+
+	$main.html(template(pictures));
 });
 
-},{"jquery":3,"page":4,"title":7}],18:[function(require,module,exports){
+},{"./template":18,"jquery":3,"page":4,"title":7}],18:[function(require,module,exports){
+var yo = require('yo-yo');
+var layout = require('../layout');
+var picture = require('../picture-card');
+
+module.exports = function (pictures) {
+	var el = yo`
+	<div class="container timeline">
+		<div class="row">
+			<div class="col s12 m10">
+				${ pictures.map(function (pic) {
+		return picture(pic);
+	}) }
+			</div>
+		</div>
+	</div>	
+`;
+	return layout(el);
+};
+
+},{"../layout":21,"../picture-card":22,"yo-yo":8}],19:[function(require,module,exports){
 var page = require('page');
 
 require('./homepage');
@@ -12470,12 +12511,12 @@ require('./signin');
 
 page();
 
-},{"./homepage":17,"./signin":20,"./signup":22,"page":4}],19:[function(require,module,exports){
+},{"./homepage":17,"./signin":23,"./signup":25,"page":4}],20:[function(require,module,exports){
 var yo = require('yo-yo');
 
 module.exports = function landing(box) {
 
-    return yo`<div class="container">
+    return yo`<div class="container landing">
             <div class="row">
                 <div class="col s10 push-s1">
                     <div class="row">
@@ -12489,7 +12530,63 @@ module.exports = function landing(box) {
         </div>`;
 };
 
-},{"yo-yo":8}],20:[function(require,module,exports){
+},{"yo-yo":8}],21:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = function layout(content) {
+
+    return yo`
+    <div>
+        <nav class="header">
+            <div class="nav-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 m6  offset-m1">
+                            <a href="/" class="brand-logo pictagram">Pictagram</a>
+                        </div>
+                        <div class="col s2 m6 push-m10">
+                            <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">
+                                <i class="fa fa-user" aria-hidden="true">User</i> 
+                            </a>
+                            <ul id="drop-user" class="dropdown-content">
+                                <li><a href="#">Salir</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            ${ content }
+        </div>
+    </div>
+`;
+};
+
+},{"yo-yo":8}],22:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = function (pic) {
+	return yo`
+	<div class="card">
+    	<div class="card-image">
+      		<img class="activator" src="${ pic.url }">
+    	</div>
+	    <div class="card-content">
+    	  	<a href="/user/${ pic.user.username }" class="card-title">
+				<img src="${ pic.user.avatar }" class="avatar"/>       
+				<span class="username">${ pic.user.username }</span>
+      		</a>
+			<small class="time right">Hace 1 día</small>
+			<p>
+				<a href="#" class="left"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+				<span class="left likes">${ pic.likes } me gusta</span>
+			</p>
+		</div>
+    </div>`;
+};
+
+},{"yo-yo":8}],23:[function(require,module,exports){
 var $ = require('jquery');
 var page = require('page');
 var template = require('./template');
@@ -12501,7 +12598,7 @@ page('/signin', function (ctx, next) {
     $main.html(template);
 });
 
-},{"./template":21,"jquery":3,"page":4,"title":7}],21:[function(require,module,exports){
+},{"./template":24,"jquery":3,"page":4,"title":7}],24:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -12512,7 +12609,9 @@ var signinForm = yo`<div class="col s12 m7">
                                     <form action="" class="signup-form">
                                         <div class="section">
                                             <a href="" class="btn btn-fb hide-on-small-only">Inicia sesión con Facebook</a>
-                                            <a href="" class="btn btn-fb hide-on-med-and-up">Iniciar sesión</a>
+                                            <a href="" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                            Iniciar sesión
+                                            </a>
                                         </div>
                                         <div class="divider"></div>
                                         <div class="section">
@@ -12533,7 +12632,7 @@ var signinForm = yo`<div class="col s12 m7">
 
 module.exports = landing(signinForm);
 
-},{"../landing":19,"yo-yo":8}],22:[function(require,module,exports){
+},{"../landing":20,"yo-yo":8}],25:[function(require,module,exports){
 var $ = require('jquery');
 var page = require('page');
 var template = require('./template');
@@ -12545,7 +12644,7 @@ page('/signup', function (ctx, next) {
     $main.html(template);
 });
 
-},{"./template":23,"jquery":3,"page":4,"title":7}],23:[function(require,module,exports){
+},{"./template":26,"jquery":3,"page":4,"title":7}],26:[function(require,module,exports){
 var yo = require('yo-yo');
 var landing = require('../landing');
 
@@ -12557,7 +12656,9 @@ var signupForm = yo`<div class="col s12 m7">
                                         <h2>Sign up now!</h2>
                                         <div class="section">
                                             <a href="" class="btn btn-fb hide-on-small-only">Inicia sesión con Facebook</a>
-                                            <a href="" class="btn btn-fb hide-on-med-and-up">Iniciar sesión</a>
+                                            <a href="" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                                Iniciar sesión
+                                            </a>
                                         </div>
                                         <div class="divider"></div>
                                         <div class="section">
@@ -12580,4 +12681,4 @@ var signupForm = yo`<div class="col s12 m7">
 
 module.exports = landing(signupForm);
 
-},{"../landing":19,"yo-yo":8}]},{},[18]);
+},{"../landing":20,"yo-yo":8}]},{},[19]);
