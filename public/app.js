@@ -12566,9 +12566,12 @@ module.exports = function layout(content) {
 },{"yo-yo":8}],22:[function(require,module,exports){
 var yo = require('yo-yo');
 
-module.exports = function (pic) {
-	return yo`
-	<div class="card">
+module.exports = function pictureCard(pic) {
+
+  var el;
+
+  function render(pic) {
+    return yo`<div class="card ${ pic.liked ? 'liked' : '' }">
     	<div class="card-image">
       		<img class="activator" src="${ pic.url }">
     	</div>
@@ -12579,11 +12582,24 @@ module.exports = function (pic) {
       		</a>
 			<small class="time right">Hace 1 día</small>
 			<p>
-				<a href="#" class="left"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+				<a href="#" class="left" onclick=${ like.bind(null, true) }><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+				<a href="#" class="left" onclick=${ like.bind(null, false) }><i class="fa fa-heart" aria-hidden="true"></i></a>
 				<span class="left likes">${ pic.likes } me gusta</span>
 			</p>
 		</div>
     </div>`;
+  }
+
+  function like(liked) {
+    pic.liked = liked;
+    pic.likes += liked ? 1 : -1;
+    var newEl = render(pic);
+    yo.update(el, newEl);
+    return false;
+  }
+
+  el = render(pic);
+  return el;
 };
 
 },{"yo-yo":8}],23:[function(require,module,exports){
