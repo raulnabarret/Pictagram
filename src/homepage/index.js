@@ -17,8 +17,8 @@ page('/', function(ctx, next) {
 				avatar: 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg'
 			},
 			'url': 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg',
-			'likes': 2034,
-			'liked': true,
+			'likes': 0,
+			'liked': false,
 			'createdAt': new Date()
 		},
 		{
@@ -27,7 +27,7 @@ page('/', function(ctx, next) {
 				avatar: 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg'
 			},
 			'url': 'https://pbs.twimg.com/profile_images/755066211621179392/IWpe9VDE.jpg',
-			'likes': 2034,
+			'likes': 2,
 			'liked': true,
 			'createdAt': new Date().setDate(new Date().getDate() - 10)
 		}
