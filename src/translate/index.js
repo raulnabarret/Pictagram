@@ -7,8 +7,8 @@ if (!window.Intl) {
 var IntlRelativeFormat = window.IntlRelativeFormat = require('intl-relativeformat')
 var IntlMessageFormat = require('intl-messageformat')
 
-require('intl-relativeformat/dist/locale-data/en.js')
 require('intl-relativeformat/dist/locale-data/es.js')
+require('intl-relativeformat/dist/locale-data/en.js')
 
 var es = require('./es')
 var en = require('./en-US')
@@ -25,5 +25,5 @@ module.exports = {
         var msg = new IntlMessageFormat(MESSAGES[locale][text], locale, null)
         return msg.format(opts)
     },
-    date: new IntlRelativeFormat(locale)
+    'date': new IntlRelativeFormat(locale)
 }
