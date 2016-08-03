@@ -25595,7 +25595,9 @@ module.exports = [
 
 var _templateObject = _taggedTemplateLiteral(['<footer class="site-footer">\n  <div class="container">\n    <div class="row">\n      <div class="col s12 m12 l3 center-align"><a href="#" data-activates="dropdown1" class="dropdown-button btn btn-flat">', '</a>\n        <ul id="dropdown1" class="dropdown-content">\n          <li><a href="#!" onclick=', '>', '</a></li>\n          <li><a href="#!" onclick=', '>', '</a></li>\n        </ul>\n      </div>\n      <div class="col s12 l3 push-l6 center-align">© 2016 Pictagram</div>\n    </div>\n  </div>\n</footer>'], ['<footer class="site-footer">\n  <div class="container">\n    <div class="row">\n      <div class="col s12 m12 l3 center-align"><a href="#" data-activates="dropdown1" class="dropdown-button btn btn-flat">', '</a>\n        <ul id="dropdown1" class="dropdown-content">\n          <li><a href="#!" onclick=', '>', '</a></li>\n          <li><a href="#!" onclick=', '>', '</a></li>\n        </ul>\n      </div>\n      <div class="col s12 l3 push-l6 center-align">© 2016 Pictagram</div>\n    </div>\n  </div>\n</footer>']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) {
+  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
 
 var yo = require('yo-yo');
 var $ = require('jquery');
@@ -25615,7 +25617,9 @@ document.body.appendChild(el);
 
 var _templateObject = _taggedTemplateLiteral(['        <nav class="header">\n            <div class="nav-wrapper">\n                <div class="container">\n                    <div class="row">\n                        <div class="col s10 m6  offset-m1">\n                            <a href="/" class="brand-logo pictagram">Pictagram</a>\n                        </div>\n                        <div class="col s2 m6 push-m10">\n                            <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">\n                                <i class="fa fa-user" aria-hidden="true"></i> \n                            </a>\n                            <ul id="drop-user" class="dropdown-content">\n                                <li><a href="#">', '</a></li>\n                            </ul>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </nav>'], ['        <nav class="header">\n            <div class="nav-wrapper">\n                <div class="container">\n                    <div class="row">\n                        <div class="col s10 m6  offset-m1">\n                            <a href="/" class="brand-logo pictagram">Pictagram</a>\n                        </div>\n                        <div class="col s2 m6 push-m10">\n                            <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">\n                                <i class="fa fa-user" aria-hidden="true"></i> \n                            </a>\n                            <ul id="drop-user" class="dropdown-content">\n                                <li><a href="#">', '</a></li>\n                            </ul>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </nav>']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) {
+    return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
 
 var yo = require('yo-yo');
 var translate = require('../translate');
@@ -25698,22 +25702,41 @@ function loadPicturesFetch(ctx, next) {
 },{"../header":344,"./template":346,"jquery":329,"page":330,"title":333}],346:[function(require,module,exports){
 'use strict';
 
-var _templateObject = _taggedTemplateLiteral(['\n\t<div class="container timeline">\n\t\t<div class="row">\n\t\t\t<div class="col s12 m10">\n\t\t\t\t', '\n\t\t\t</div>\n\t\t</div>\n\t</div>\t\n'], ['\n\t<div class="container timeline">\n\t\t<div class="row">\n\t\t\t<div class="col s12 m10">\n\t\t\t\t', '\n\t\t\t</div>\n\t\t</div>\n\t</div>\t\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\t<div class="container timeline">\n\t\t<div class="row">\t\t\n\t\t\t<div class="col s12 m10 offset-m1 l8 offset-m2 center-align">\t\n\t\t\t\t<form enctype="multipart/form-data" class="form-upload" id="formUpload">\n\t\t\t\t\t<div id="fileName" class="fileUpload btn btn-flat cyan">\n\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t<i class="fa fa-camera" aria-hidden="true"></i> ', ' \n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<input name="picture" type="file" class="upload" id="file" onchange=', ' />\n\t\t\t\t\t</div>\n\t\t\t\t\t<button class="btn btn-flat cyan hide" id="btnUpload" type="submit">', '</button>\n\t\t\t\t\t<button class="btn btn-flat red hide" id="btnCancel" type="button" onclick=', '><i class="fa fa-times" aria-hidden="true"></i></button>\n\t\t\t\t</form>\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="row">\n\t\t\t<div class="col s12 m10">\n\t\t\t\t', '\n\t\t\t</div>\n\t\t</div>\n\t</div>\n'], ['\n\t<div class="container timeline">\n\t\t<div class="row">\t\t\n\t\t\t<div class="col s12 m10 offset-m1 l8 offset-m2 center-align">\t\n\t\t\t\t<form enctype="multipart/form-data" class="form-upload" id="formUpload">\n\t\t\t\t\t<div id="fileName" class="fileUpload btn btn-flat cyan">\n\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t<i class="fa fa-camera" aria-hidden="true"></i> ', ' \n\t\t\t\t\t\t</span>\n\t\t\t\t\t\t<input name="picture" type="file" class="upload" id="file" onchange=', ' />\n\t\t\t\t\t</div>\n\t\t\t\t\t<button class="btn btn-flat cyan hide" id="btnUpload" type="submit">', '</button>\n\t\t\t\t\t<button class="btn btn-flat red hide" id="btnCancel" type="button" onclick=', '><i class="fa fa-times" aria-hidden="true"></i></button>\n\t\t\t\t</form>\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="row">\n\t\t\t<div class="col s12 m10">\n\t\t\t\t', '\n\t\t\t</div>\n\t\t</div>\n\t</div>\n']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) {
+	return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
 
 var yo = require('yo-yo');
 var layout = require('../layout');
 var picture = require('../picture-card');
+var translate = require('../translate');
+var $ = require('jquery');
 
 module.exports = function (pictures) {
-	var el = yo(_templateObject, pictures.map(function (pic) {
+	var el = yo(_templateObject, translate.message('upload-picture'), onchange, translate.message('upload'), cancel, pictures.map(function (pic) {
 		return picture(pic);
 	}));
+	function toggleButtons() {
+		$("#fileName").toggleClass('hide');
+		$("#btnUpload").toggleClass('hide');
+		$("#btnCancel").toggleClass('hide');
+	}
+
+	function cancel() {
+		toggleButtons();
+		$("#formUpload").reset();
+	}
+
+	function onchange() {
+		toggleButtons();
+	}
+
 	return layout(el);
 };
 
-},{"../layout":349,"../picture-card":350,"yo-yo":334}],347:[function(require,module,exports){
+},{"../layout":349,"../picture-card":350,"../translate":357,"jquery":329,"yo-yo":334}],347:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -25731,7 +25754,9 @@ page();
 
 var _templateObject = _taggedTemplateLiteral(['<div class="container landing">\n            <div class="row">\n                <div class="col s10 push-s1">\n                    <div class="row">\n                        <div class="col m5 hide-on-small-only">\n                            <img class="signup-image" src="iphone.png" alt="">\n                        </div>\n                        ', '\n                    </div>\n                </div>\n            </div>\n        </div>'], ['<div class="container landing">\n            <div class="row">\n                <div class="col s10 push-s1">\n                    <div class="row">\n                        <div class="col m5 hide-on-small-only">\n                            <img class="signup-image" src="iphone.png" alt="">\n                        </div>\n                        ', '\n                    </div>\n                </div>\n            </div>\n        </div>']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) {
+    return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
 
 var yo = require('yo-yo');
 
@@ -25745,7 +25770,9 @@ module.exports = function landing(box) {
 
 var _templateObject = _taggedTemplateLiteral(['\n    <div>\n        <div class="content">\n            ', '\n        </div>\n    </div>\n'], ['\n    <div>\n        <div class="content">\n            ', '\n        </div>\n    </div>\n']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) {
+    return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
 
 var yo = require('yo-yo');
 var translate = require('../translate');
@@ -25760,7 +25787,9 @@ module.exports = function layout(content) {
 
 var _templateObject = _taggedTemplateLiteral(['<div class="card ', '">\n    \t<div class="card-image">\n      \t\t<img class="activator" src="', '">\n    \t</div>\n\t    <div class="card-content">\n    \t  \t<a href="/user/', '" class="card-title">\n\t\t\t\t<img src="', '" class="avatar"/>       \n\t\t\t\t<span class="username">', '</span>\n      \t\t</a>\n\t\t\t<small class="time right">', '</small>\n\t\t\t<p>\n\t\t\t\t<a href="#" class="left" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n\t\t\t\t<a href="#" class="left" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n\t\t\t\t<span class="left likes">', '</span>\n\t\t\t</p>\n\t\t</div>\n    </div>'], ['<div class="card ', '">\n    \t<div class="card-image">\n      \t\t<img class="activator" src="', '">\n    \t</div>\n\t    <div class="card-content">\n    \t  \t<a href="/user/', '" class="card-title">\n\t\t\t\t<img src="', '" class="avatar"/>       \n\t\t\t\t<span class="username">', '</span>\n      \t\t</a>\n\t\t\t<small class="time right">', '</small>\n\t\t\t<p>\n\t\t\t\t<a href="#" class="left" onclick=', '><i class="fa fa-heart-o" aria-hidden="true"></i></a>\n\t\t\t\t<a href="#" class="left" onclick=', '><i class="fa fa-heart" aria-hidden="true"></i></a>\n\t\t\t\t<span class="left likes">', '</span>\n\t\t\t</p>\n\t\t</div>\n    </div>']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) {
+  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
 
 var yo = require('yo-yo');
 var translate = require('../translate');
@@ -25804,7 +25833,9 @@ page('/signin', function (ctx, next) {
 
 var _templateObject = _taggedTemplateLiteral(['<div class="col s12 m7">\n                            <div class="row">\n                                <div class="signup-box">\n                                    <h1 class="pictagram">Pictagram</h1>\n                                    <form action="" class="signup-form">\n                                        <div class="section">\n                                            <a href="" class="btn btn-fb hide-on-small-only">', '</a>\n                                            <a href="" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official" aria-hidden="true"></i>\n                                                ', '\n                                            </a>\n                                        </div>\n                                        <div class="divider"></div>\n                                        <div class="section">\n                                            <input type="text" name="username" placeholder="', '">\n                                            <input type="password" name="password" placeholder="', '">\n                                            <button class="btn btn-signup waves-effect waves-light" type="submit">', '</button>\n                                        </div>\n                                    </form>\n                                </div>\n                            </div>\n                            <div class="row">\n                                <div class="login-box">\n                                    ', '\n                                    <a href="/signup">', '</a>\n                                </div>\n                            </div>\n                        </div>'], ['<div class="col s12 m7">\n                            <div class="row">\n                                <div class="signup-box">\n                                    <h1 class="pictagram">Pictagram</h1>\n                                    <form action="" class="signup-form">\n                                        <div class="section">\n                                            <a href="" class="btn btn-fb hide-on-small-only">', '</a>\n                                            <a href="" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official" aria-hidden="true"></i>\n                                                ', '\n                                            </a>\n                                        </div>\n                                        <div class="divider"></div>\n                                        <div class="section">\n                                            <input type="text" name="username" placeholder="', '">\n                                            <input type="password" name="password" placeholder="', '">\n                                            <button class="btn btn-signup waves-effect waves-light" type="submit">', '</button>\n                                        </div>\n                                    </form>\n                                </div>\n                            </div>\n                            <div class="row">\n                                <div class="login-box">\n                                    ', '\n                                    <a href="/signup">', '</a>\n                                </div>\n                            </div>\n                        </div>']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) {
+  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
 
 var yo = require('yo-yo');
 var landing = require('../landing');
@@ -25833,7 +25864,9 @@ page('/signup', function (ctx, next) {
 
 var _templateObject = _taggedTemplateLiteral(['<div class="col s12 m7">\n                            <div class="row">\n                                <div class="signup-box">\n                                    <h1 class="pictagram">Pictagram</h1>\n                                    <form action="" class="signup-form">\n                                        <h2>', '</h2>\n                                        <div class="section">\n                                            <a href="" class="btn btn-fb hide-on-small-only">', '</a>\n                                            <a href="" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official" aria-hidden="true"></i>\n                                                ', '\n                                            </a>\n                                        </div>\n                                        <div class="divider"></div>\n                                        <div class="section">\n                                            <input type="email" name="email" placeholder="', '">\n                                            <input type="text" name="name" placeholder="', '">\n                                            <input type="text" name="username" placeholder="', '">\n                                            <input type="password" name="password" placeholder="', '">\n                                            <button class="btn btn-signup waves-effect waves-light" type="submit">', '</button>\n                                        </div>\n                                    </form>\n                                </div>\n                            </div>\n                            <div class="row">\n                                <div class="login-box">\n                                    ', '\n                                    <a href="/signin">', '</a>\n                                </div>\n                            </div>\n                        </div>'], ['<div class="col s12 m7">\n                            <div class="row">\n                                <div class="signup-box">\n                                    <h1 class="pictagram">Pictagram</h1>\n                                    <form action="" class="signup-form">\n                                        <h2>', '</h2>\n                                        <div class="section">\n                                            <a href="" class="btn btn-fb hide-on-small-only">', '</a>\n                                            <a href="" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official" aria-hidden="true"></i>\n                                                ', '\n                                            </a>\n                                        </div>\n                                        <div class="divider"></div>\n                                        <div class="section">\n                                            <input type="email" name="email" placeholder="', '">\n                                            <input type="text" name="name" placeholder="', '">\n                                            <input type="text" name="username" placeholder="', '">\n                                            <input type="password" name="password" placeholder="', '">\n                                            <button class="btn btn-signup waves-effect waves-light" type="submit">', '</button>\n                                        </div>\n                                    </form>\n                                </div>\n                            </div>\n                            <div class="row">\n                                <div class="login-box">\n                                    ', '\n                                    <a href="/signin">', '</a>\n                                </div>\n                            </div>\n                        </div>']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) {
+  return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
 
 var yo = require('yo-yo');
 var landing = require('../landing');
@@ -25862,7 +25895,9 @@ module.exports = {
 			'signup.have-account': 'Already have an account?',
 			'signin': 'Sign in',
 			'signin.not-have-account': 'Don\'t have an account?',
-			'language': 'Language'
+			'language': 'Language',
+			'upload-picture': 'Upload picture',
+			'upload': 'Upload'
 
 };
 
@@ -25885,7 +25920,9 @@ module.exports = {
 	'signup.have-account': '¿Tienes una cuenta?',
 	'signin': 'Entrar',
 	'signin.not-have-account': '¿No tienes una cuenta?',
-	'language': 'Idioma'
+	'language': 'Idioma',
+	'upload-picture': 'Subir imagen',
+	'upload': 'Subir'
 };
 
 },{}],357:[function(require,module,exports){
